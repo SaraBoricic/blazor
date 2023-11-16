@@ -1,0 +1,95 @@
+﻿@page "/0302xIfElseBranchCuboid"
+
+<PageTitle>Volume and Area</PageTitle>
+<h1>\Volume and Area</h1>
+<br/>
+<table>
+    <tr>
+        <td>Shape:</td>
+        <td>
+            <select @bind="shape">
+              <option value="cube">Cube</option>
+              <option value="sphere">Sphere</option>
+              <option value="cuboid">Cuboid</option>
+            </select>
+        </td>
+    </tr>
+    <tr>
+        <td>Argument:</td>
+        <td>
+            <input style="text-align:right" @bind= "a">
+        </td>
+    </tr>
+    @if(shape=="cuboid"){
+    <tr>
+        <td>Argument:</td>
+        <td>
+            <input style="text-align:right" @bind= "b">
+        </td>
+    </tr>
+    <tr>
+        <td>Argument:</td>
+        <td>
+            <input style="text-align:right" @bind= "c">
+        </td>
+    </tr>
+    }
+    <tr>
+        <td style="text-align:center" colspan="2">
+            <button @onclick="VolumeArea">Calculate</button> &nbsp; 
+        </td>
+    </tr>
+    <tr>
+        <td>Volume:</td>
+        <td><input style="text-align:right" @bind="volume"/></td>
+    </tr>
+    <tr>
+        <td>Area:</td>
+        <td><input style="text-align:right" @bind="area"/></td>
+    </tr>
+</table>
+<br/>
+
+
+
+@code {
+    private double pi = Math.PI;
+
+    private string shape = "";
+
+    private double a = 1;
+
+    private double b = 1;
+
+    private double c = 1;
+
+    private double volume;
+
+    private double area;
+
+    private void VolumeArea()
+    {
+        if (shape == "sphere")
+        {
+            volume = 4 * pi * a * a * a / 3;
+            area =4 * pi * a * a;
+        }
+        else if (shape == "cuboid")
+        {
+            volume = 2 *( a*b + b*c + c*a) ;
+            area = a * b * c;
+        }
+        else if (shape == "cube")
+        {
+            volume = 6 * a * a;
+            area = a * a * a;
+        }
+        else
+        {
+            // we can not calculate area or circumference for this shape
+            volume = -1;
+            area = -1;
+        }
+    }
+}
+
