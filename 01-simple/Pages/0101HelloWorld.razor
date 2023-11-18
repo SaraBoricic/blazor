@@ -1,19 +1,16 @@
 ﻿@page "/0101HelloWorld"
 
-<PageTitle>Hello World</PageTitle>
 <h1>Hello world</h1>
-
-<br />
+<br/>
 <br />
 <pre>@message</pre>
-  
+
 @code {
-    private string message = "miki maus";
+    private string message = "";
 
     protected override async Task OnInitializedAsync()
     {
-        int i =42;
-        i=142;
-        message = "" + i;
+        message = "Hello world!!!";
+        await Task.Run(() => message=message+"" );
     }
 }

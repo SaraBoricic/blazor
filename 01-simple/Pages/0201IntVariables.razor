@@ -17,11 +17,11 @@ Output:
     private void Execute()
     {
         int x = 7;
-        message = "x = " + x;
+        message = nameof(x) + " = " + x;
         message = message + Environment.NewLine;
 
         int y = 4 + 3;
-        message = message + "y = " + y;
+        message = message + nameof(y) + " = " + y;
         message = message + Environment.NewLine;
 
         int z = x + y;

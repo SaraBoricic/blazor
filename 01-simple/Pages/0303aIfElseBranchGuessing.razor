@@ -1,4 +1,4 @@
-﻿@page "/0303alfElseBranchGuessing"
+﻿@page "/0303aIfElseBranchGuessing"
 
 <PageTitle>Guessing Game</PageTitle>
 <h1>Guessing Game</h1>
@@ -68,7 +68,7 @@
     {
         gameStarted = true;
         newGuess = 0;
-        upToNowGuesses = 0;
+        upToNowGuesses = 1;
         userLoose = false;
         Random rnd = new Random();
         envisonedNumber = rnd.Next(lowerLimit, upperLimit+1);
@@ -78,6 +78,7 @@
 
     private void CheckGuess()
     {
+        upToNowGuesses = upToNowGuesses + 1;
         if (envisonedNumber == newGuess)
         {
             message += "CONGRATULATION! YOU WIN! Number " + newGuess
@@ -111,7 +112,6 @@
             else
                 message += "Sorry, envisioned number is less than " + newGuess + Environment.NewLine;
         }
-        upToNowGuesses = upToNowGuesses + 1;
     }
 
 }

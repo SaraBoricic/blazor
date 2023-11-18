@@ -61,6 +61,7 @@
         filmCrew[0] = movieStar1;
         filmCrew[1] = movieStar2;
         filmCrew[2] = theBadGuy;
+        await Task.Run(() => filmCrew[0].ImdbMark = filmCrew[0].ImdbMark+0  );
     }
 
     private void AverageIMDB()
