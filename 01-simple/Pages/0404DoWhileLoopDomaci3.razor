@@ -1,0 +1,39 @@
+﻿@page "/0404DoWhileLoopDomaci3"
+<PageTitle>Sum of Numbers</PageTitle>
+<h1>Sum of Numbers</h1>
+<p>
+    Enter a positive integer (n) to calculate the sum of numbers from 1 to n.
+</p>
+<table>
+    <tr>
+        <td>Enter n:</td>
+        <td><input style="text-align:right" @bind="n" /></td>
+    </tr>
+    <tr>
+        <td style="text-align:center" colspan="2">
+            <button @onclick="CalculateSum">Calculate Sum</button>
+        </td>
+    </tr>
+    <tr>
+        <td>Result:</td>
+        <td><input style="text-align:right" @bind="sum" /></td>
+    </tr>
+</table>
+<br />
+@code {
+
+    private int n = 0;
+    private int sum = 0;
+
+    private void CalculateSum()
+    {
+        int i = 1;
+        sum = 0;
+
+        while (i <= n)
+        {
+            sum += i;
+            i++;
+        }
+    }
+}
