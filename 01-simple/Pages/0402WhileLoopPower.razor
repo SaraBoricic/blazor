@@ -1,6 +1,5 @@
 ﻿@page "/0402WhileLoopPower"
 
-<PageTitle>Power</PageTitle>
 <h1>Power</h1>
 <br/>
 <table>
@@ -18,8 +17,9 @@
     </tr>
     <tr>
         <td style="text-align:center" colspan="2">
-            <button title="by forward counting" @onclick="PowerByCountForward">Power</button> &nbsp; 
-            <button title="by backward counting" @onclick="PowerByCountBackward">Power</button> &nbsp; 
+            <input type="button" value="Power" title="by forward counting" @onclick="PowerByCountForward"/> &nbsp;             
+            <input type="button" value="Power" title="by backward counting" @onclick="PowerByCountBackward"> &nbsp; 
+
         </td>
     </tr>
     <tr>
@@ -31,7 +31,7 @@
 
 @code {
 
-    private double baseOne = 2.5;
+    private double baseOne = 3.2;
 
     private int exponent = 0;
 
@@ -46,7 +46,7 @@
         double res = 1;
         if ( exp == 0)
         {
-            result = res;
+            result = 1;
             System.Console.WriteLine("Result: " + result);
             System.Console.WriteLine();
             return;

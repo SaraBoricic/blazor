@@ -10,13 +10,13 @@ integers and texts that are not numbers at all.
     <tr>
         <td>First argument:</td>
         <td>
-            <input style="text-align:right" @bind="numberOne"/>
+            <input type="text" style="text-align:right" @bind="numberOne"/>
         </td>
     </tr>
     <tr>
         <td>Second argument:</td>
          <td>
-            <input style="text-align:right" @bind="numberTwo"/>
+            <input  type="text" style="text-align:right" @bind="numberTwo"/>
         </td>
     </tr>
     <tr>
@@ -37,8 +37,8 @@ Output:
 @code {
     private string message = "";
 
-    private int numberOne=0;
-    private int numberTwo=0;
+    private int numberOne = 42;
+    private int numberTwo = 42;
 
     private void Add()
     {

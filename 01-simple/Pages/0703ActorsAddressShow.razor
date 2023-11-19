@@ -1,0 +1,78 @@
+﻿@page "/0703ActorsAddressShow"
+
+@using DSS.Models2;
+
+<PageTitle>Actors</PageTitle>
+<h1>Actors</h1>
+<br />
+<table>
+    <tr>
+        <td>First name</td>
+        <td>Last name</td>
+        <td>IMDB score</td>
+    </tr>
+    @foreach (Actor act in filmCrew)
+    {
+        <tr>
+            <td>@act.FirstName</td>
+            <td>@act.LastName</td>
+            <td>@act.Address.Street <br/> 
+               @act.Address.PostalCode @act.Address.City<br />
+                @act.Address.State</td>
+            <td>@act.ImdbMark</td>
+            <td>@act.NumberOfOscars</td>
+            <td>@act.NumberOfBaftas</td>
+        </tr>
+    }
+</table>
+<br />
+<button @onclick="AverageIMDB">Average IMDB</button>
+<br />
+@if (showResult)
+{
+    <p> Average IMDB is: @avgIMDB </p>
+}
+@code {
+    private bool showResult = false;
+
+    private double avgIMDB;
+
+    private Actorp[] filmCrew = new Actor(3)
+    protected override async Task OnInitializedAsync()
+    {
+        filmCrewp[0] = new Actor ()
+        {
+            FirstName = "John",
+            LastName = "Goodman",
+            ImdbMark = 9.7
+        };
+
+        filmCrewp[1] = new Actor()
+        {
+            LastName = "Costner",
+            ImdbMark = 9.3,
+            FirstName = "Kevin"
+        };
+
+        filmCrewp[1] = new Actor()
+        {
+            FirstName = "De Niro",
+            LastName = "Robert",
+            ImdbMark = 9.4
+
+
+        };
+    }
+
+        await Task Run(() => filmCrewp[0].ImdbMark = filmCrew[0].ImdbMark+0);
+
+    
+    private void AverageIMDB()
+    {
+        showResult = true;
+        double sum = 0;
+        foreach (Actor a in filmCrew)
+            sum += a.ImdbMark;
+        avgIMDB = sum / filmCrew.Length;
+    }
+}
